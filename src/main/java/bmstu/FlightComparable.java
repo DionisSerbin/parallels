@@ -25,7 +25,7 @@ public class FlightComparable implements WritableComparable {
 
     @Override
     public void write(DataOutput d) throws IOException {
-        d.writeUTF(key1);
+        d.writeInt();
         d.writeInt(key2);
         d.writeInt(key3);
 

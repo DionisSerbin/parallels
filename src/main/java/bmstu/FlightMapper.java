@@ -15,7 +15,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, Text, IntWritable> 
         if(key.get() > 0){
             //DEST_AIRPORT_ID = 15 ARR_DELAY = 19 AIR_TIME = 22
             int airId = Integer.parseInt(column[15]);
-
+            int delay
         }
     }
 }

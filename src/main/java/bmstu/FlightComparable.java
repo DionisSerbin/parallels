@@ -33,7 +33,7 @@ public class FlightComparable implements WritableComparable {
 
     @Override
     public void readFields(DataInput d) throws IOException {
-        airportId = dataIn;
+        airportId = d.readInt();
         double delayTime;
         double airTime;
         boolean cancelled;

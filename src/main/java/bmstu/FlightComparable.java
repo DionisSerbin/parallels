@@ -16,4 +16,19 @@ public class FlightComparable extends WritableComparator {
         this.cancelled = cancelled;
     }
 
+    @Override
+    public void write(DataOutput d) throws IOException {
+        d.writeUTF(key1);
+        d.writeInt(key2);
+        d.writeInt(key3);
+
+    }
+
+    @Override
+    public void readFields(DataInput di) throws IOException {
+        key1 = di.readUTF();
+        key2 = di.readInt();
+        key3 = di.readInt();
+    }
+
 }

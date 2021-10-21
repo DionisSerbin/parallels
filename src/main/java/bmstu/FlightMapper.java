@@ -14,7 +14,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, Text, IntWritable> 
         String[] column = line.split(",");
         if(key.get() > 0){
             //DEST_AIRPORT_ID = 15 ARR_DELAY = 19 AIR_TIME = 22
-            int airId = column[15];
+            int airId = Integer.parseInt(column[15]);
 
         }
     }

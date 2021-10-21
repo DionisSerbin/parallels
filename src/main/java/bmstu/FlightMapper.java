@@ -21,7 +21,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, Text, IntWritable> 
             if(cancelled == 1.00) {
 
             }else {
-                
+
             }
         }
     }

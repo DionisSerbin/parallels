@@ -12,9 +12,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, Text, IntWritable> 
             InterruptedException {
         String line = value.toString();
         String[] words = line.split(",");
-        for (String word : words) {
-            context.write(new Text(word.toLowerCase()), new IntWritable(1));
-        }
+        
     }
 }
 

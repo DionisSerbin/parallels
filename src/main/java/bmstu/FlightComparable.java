@@ -4,7 +4,12 @@ import org.apache.hadoop.io.WritableComparator;
 
 public class FlightComparable extends WritableComparator {
 
-    public FlightComparable(int airportId, double delayTime, double airTime, double cancelled){
+    int airportId;
+    double delayTime;
+    double airTime;
+    boolean cancelled;
+
+    public FlightComparable(int airportId, double delayTime, double airTime, boolean cancelled){
         t
     }
 

@@ -13,7 +13,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, Text, IntWritable> 
         String line = value.toString();
         String[] words = line.split(",");
         if(key.get() > 0){
-            //DEST_AIRPORT_ID = 15
+            //DEST_AIRPORT_ID = 15 ARR_DELAY = 19
         }
     }
 }

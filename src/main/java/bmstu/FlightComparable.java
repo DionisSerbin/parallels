@@ -32,10 +32,11 @@ public class FlightComparable implements WritableComparable {
     }
 
     @Override
-    public void readFields(DataInput di) throws IOException {
-        key1 = di.readUTF();
-        key2 = di.readInt();
-        key3 = di.readInt();
+    public void readFields(DataInput d) throws IOException {
+        airportId = readFields();
+        double delayTime;
+        double airTime;
+        boolean cancelled;
     }
 
 

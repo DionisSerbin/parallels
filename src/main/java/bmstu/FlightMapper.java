@@ -17,8 +17,12 @@ public class FlightMapper extends Mapper<LongWritable, Text, Text, IntWritable> 
             int airId = Integer.parseInt(column[15]);
             double delay = Double.parseDouble(column[19]);
             double airTime = Double.parseDouble(column[22]);
-            int cancelled = column[20];
+            double cancelled = Double.parseDouble(column[20]);
+            if(cancelled == 1.00) {
 
+            }else {
+                
+            }
         }
     }
 }

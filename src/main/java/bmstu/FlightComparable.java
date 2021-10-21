@@ -20,6 +20,8 @@ public class FlightComparable extends WritableComparator {
         this.cancelled = cancelled;
     }
 
+
+
     @Override
     public void write(DataOutput d) throws IOException {
         d.writeUTF(key1);

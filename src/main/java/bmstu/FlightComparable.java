@@ -10,7 +10,10 @@ public class FlightComparable extends WritableComparator {
     boolean cancelled;
 
     public FlightComparable(int airportId, double delayTime, double airTime, boolean cancelled){
-        t
+        this.airportId = airportId;
+        this.delayTime = delayTime;
+        this.airTime = airTime;
+        this.cancelled = cancelled;
     }
 
 }

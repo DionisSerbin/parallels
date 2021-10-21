@@ -1,12 +1,12 @@
 package bmstu;
 
-import org.apache.hadoop.io.WritableComparator;
+import org.apache.hadoop.io.WritableComparable;
 
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class FlightComparable extends WritableComparator {
+public class FlightComparable implements WritableComparable {
 
     int airportId;
     double delayTime;

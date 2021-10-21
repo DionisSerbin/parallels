@@ -38,4 +38,11 @@ public class FlightComparable implements WritableComparable {
         key3 = di.readInt();
     }
 
+
+    @Override
+    public int compareTo(FlightComparable t) {
+
+
+    }
+
 }

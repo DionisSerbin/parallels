@@ -22,6 +22,7 @@ public class FlightComparable extends WritableComparator {
 
 
 
+
     @Override
     public void write(DataOutput d) throws IOException {
         d.writeUTF(key1);

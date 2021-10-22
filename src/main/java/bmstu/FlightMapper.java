@@ -14,13 +14,13 @@ public class FlightMapper extends Mapper<LongWritable, Text, FlightComparable, T
         if(key.get() > 0){
             //DEST_AIRPORT_ID = 14 ARR_DELAY = 18 AIR_TIME = 21 IS_CANCELLED = 19
             int airportId = Integer.parseInt(column[14]);
-            float delayTime = 0;
+            float delayTime;
             if (!column[18].equals("")) {
                 delayTime = Float.parseFloat(column[18]);
             } else {
                 delayTime = 0.0f;
             }
-            float airTime = 0;
+            float airTime;
             if (!column[21].equals("")) {
                 airTime = Float.parseFloat(column[21]);
             } else {

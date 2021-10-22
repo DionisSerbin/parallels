@@ -22,12 +22,12 @@ public class FlightMapper extends Mapper<LongWritable, Text, FlightComparable, T
             }
             double airTime = 0;
             if (!column[21].equals("")) {
-                delayTime = Float.parseFloat(column[21]);
+                airTime = Float.parseFloat(column[21]);
             } else {
-                delayTime = 0.0f;
+                airTime = 0.0f;
             }
             if(column[19].equals("1.00")) {
-                context.write(new FlightComparable(airportId, 0.00, 0.00, true), value);
+                context.write(new FlightComparable(airportId, 0.0f, 0.0f, true), value);
             }else if (delayTime > 0.0f){
                 context.write(new FlightComparable(airportId, delayTime, airTime, false), value);
             }

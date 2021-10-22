@@ -62,6 +62,8 @@ public class FlightComparable implements WritableComparable {
 
     public int delayCompare(Object o){
         FlightComparable a = (FlightComparable) o;
-        if(this)
+        if(this.delayTime > a.delayTime) {
+            return 1;
+        }
     }
 }

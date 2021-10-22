@@ -6,13 +6,13 @@ import org.apache.hadoop.io.WritableComparator;
 public class FlightGroupingComparator extends WritableComparator {
 
     protected FlightGroupingComparator(){
-        super(FlightComparable.class, true);
+        super(FlightWritableComparable.class, true);
     }
 
     @Override
     public int compare(WritableComparable a, WritableComparable b) {
-        FlightComparable aa = (FlightComparable) a;
-        FlightComparable bb = (FlightComparable) b;
+        FlightWritableComparable aa = (FlightWritableComparable) a;
+        FlightWritableComparable bb = (FlightWritableComparable) b;
         return aa.delayCompare(bb);
     }
 }

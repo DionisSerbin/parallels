@@ -12,7 +12,7 @@ public class FlightSortApp {
     public static void main(String[] args) throws Exception {
 
         if (args.length != 2) {
-            System.err.println("Usage: WordCountApp <input path> <output path>");
+            System.err.println("Usage: FlightSortApp <input path> <output path>");
             System.exit(-1);
         }
 
@@ -27,6 +27,7 @@ public class FlightSortApp {
         job.setPartitionerClass(FlightPartitioner.class);
         job.setMapOutputKeyClass(FlightGroupingComparator.class);
         job.setMapOutputValueClass(Text.class);
+        job.setGroupingComparatorClass(FlightGroupingComparator.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
 

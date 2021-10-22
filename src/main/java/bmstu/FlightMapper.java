@@ -20,7 +20,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, FlightComparable, T
             if(cancelled == 1.00) {
                 context.write(new FlightComparable(airportId, 0.00, 0.00, true), value);
             }else if (delayTime > 0.00){
-                context.write(new FlightComparable(airportId, 0.00, 0.00, true), value);
+                context.write(new FlightComparable(airportId, 0.00, 0.00, false), value);
             }
         }
     }

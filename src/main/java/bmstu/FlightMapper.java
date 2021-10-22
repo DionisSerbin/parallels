@@ -19,7 +19,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, Text, IntWritable> 
             double airTime = Double.parseDouble(column[22]);
             double cancelled = Double.parseDouble(column[20]);
             if(cancelled == 1.00) {
-                context.write(new FlightComparable(airportId, ));
+                context.write(new FlightComparable(airportId, 0.00, 0.00, true));
             }else {
 
             }

@@ -5,7 +5,7 @@ import org.apache.hadoop.io.WritableComparator;
 
 public class FlightGroupingComparator extends WritableComparator {
 
-    public FlightGroupingComparator(){
+    protected FlightGroupingComparator(){
         super(FlightComparable.class, true);
     }
 

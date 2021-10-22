@@ -7,7 +7,7 @@ public class FlightPartitioner extends Partitioner<FlightComparable, Text> {
 
     @Override
     public int getPartition(FlightComparable flightComparable, Text text, int amountReducers) {
-        int returned = Double.hashCode(flightComparable.delayTime) & Integer.MAX_VALUE;
-        return returned / amountReducers;
+        int returned = Float.hashCode(flightComparable.delayTime) & Integer.MAX_VALUE;
+        return returned % amountReducers;
     }
 }

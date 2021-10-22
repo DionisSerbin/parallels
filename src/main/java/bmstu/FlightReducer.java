@@ -9,11 +9,11 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
 
-public class FlightReducer extends Reducer<Text, IntWritable, Text, LongWritable> {
+public class FlightReducer extends Reducer<Fl, IntWritable, Text, LongWritable> {
     @Override
     protected void reduce(Text key, Iterable<IntWritable> values, Context context) throws
             IOException, InterruptedException {
-        
+
         context.write(key, new LongWritable());
     }
 }

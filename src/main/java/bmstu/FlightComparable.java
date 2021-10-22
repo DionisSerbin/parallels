@@ -56,8 +56,8 @@ public class FlightComparable implements WritableComparable {
 
     @Override
     public String toString() {
-        return ("bmstu.FlightComparable:" + " airportId = " + airportId + " delayTime = "
-                + delayTime + " airTime = " + airTime + " cancelled = " + cancelled);
+        return ("bmstu.FlightComparable{" + "airportId=" + airportId + ", delayTime="
+                + delayTime + ", airTime=" + airTime + ", cancelled=" + cancelled) + "}";
     }
 
     public int delayCompare(Object o){
@@ -72,6 +72,11 @@ public class FlightComparable implements WritableComparable {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return this.toString().hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

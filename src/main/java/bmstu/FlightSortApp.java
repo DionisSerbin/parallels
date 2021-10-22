@@ -1,5 +1,6 @@
 package bmstu;
 
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
         import org.apache.hadoop.io.IntWritable;
         import org.apache.hadoop.io.Text;
@@ -25,13 +26,14 @@ public class FlightSortApp {
         job.setMapperClass(FlightMapper.class);
         job.setReducerClass(FlightReducer.class);
         job.setPartitionerClass(FlightPartitioner.class);
-        job.setMapOutputKeyClass(FlightGroupingComparator.class);
-        job.setMapOutputValueClass(Text.class);
         job.setGroupingComparatorClass(FlightGroupingComparator.class);
-        job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(IntWritable.class);
+        job.setMapOutputKeyClass(FlightComparable.class);
+        job.setMapOutputValueClass(Text.class);
+        job.setOutputKeyClass(String.class);
+        job.setOutputValueClass(Text.class);
 
         job.setNumReduceTasks(2);
+
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
 }

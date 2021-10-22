@@ -60,7 +60,8 @@ public class FlightComparable implements WritableComparable {
                 + delayTime + " airTime = " + airTime + " cancelled = " + cancelled);
     }
 
-    public int delayCompare(){
-        
+    public int delayCompare(Object o){
+        FlightComparable a = (FlightComparable) o;
+        if(this)
     }
 }

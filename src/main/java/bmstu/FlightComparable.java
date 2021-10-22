@@ -20,6 +20,8 @@ public class FlightComparable implements WritableComparable {
         this.cancelled = cancelled;
     }
 
+    public FlightComparable(){}
+
     @Override
     public void write(DataOutput d) throws IOException {
         d.writeInt(airportId);
@@ -77,6 +79,18 @@ public class FlightComparable implements WritableComparable {
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if(this == obj){
+            return true;
+        } else if (obj == null || getClass() != obj.getClass()){
+            return false;
+        }
+
+        FlightComparable a = (FlightComparable) obj;
+        if(cancelled != a.cancelled
+                || Float.compare(a.airTime, delayTime) != 0
+                || Float.compare(a.delayTime, delayTime) != 0){
+            return false;
+        }
+        return airportId == a.airportId;
     }
 }

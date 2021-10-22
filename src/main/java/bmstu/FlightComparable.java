@@ -56,6 +56,6 @@ public class FlightComparable implements WritableComparable {
 
     @Override
     public String toString() {
-        return ("");
+        return ("bmstu.FlightComparable + ");
     }
 }

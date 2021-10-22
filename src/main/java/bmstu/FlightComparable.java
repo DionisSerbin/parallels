@@ -40,12 +40,12 @@ public class FlightComparable implements WritableComparable {
     @Override
     public int compareTo(Object o) {
         FlightComparable a = (FlightComparable) o;
-        if((!this.cancelled && a.cancelled)
+        if((this.cancelled && !a.cancelled)
                 || (this.delayTime > a.delayTime)
                 || (this.airportId > a.airportId)
                 || (this.airTime > a.airTime)){
             return 1;
-        } else  if((this.cancelled && !a.cancelled)
+        } else  if((!this.cancelled && a.cancelled)
                 || (this.delayTime < a.delayTime)
                 || (this.airportId < a.airportId)
                 || (this.airTime < a.airTime)){
@@ -68,5 +68,10 @@ public class FlightComparable implements WritableComparable {
             return -1;
         }
         return 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
 }

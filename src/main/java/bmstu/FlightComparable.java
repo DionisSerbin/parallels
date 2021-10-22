@@ -56,6 +56,7 @@ public class FlightComparable implements WritableComparable {
 
     @Override
     public String toString() {
-        return ("bmstu.FlightComparable:" + "airportId = " + airportId + "delayTime = " + delayTime +);
+        return ("bmstu.FlightComparable:" + "airportId = " + airportId + "delayTime = "
+                + delayTime + "airTime = " + airTime);
     }
 }

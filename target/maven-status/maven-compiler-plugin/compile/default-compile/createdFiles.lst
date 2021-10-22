@@ -1,4 +1,4 @@
-bmstu/FlightComparable.class
+bmstu/FlightWritableComparable.class
 bmstu/FlightReducer.class
 bmstu/FlightPartitioner.class
 bmstu/FlightSortApp.class

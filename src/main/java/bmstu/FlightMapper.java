@@ -3,10 +3,9 @@ package bmstu;
 import java.io.IOException;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.mapreduce.Mapper;
 
-public class FlightMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
+public class FlightMapper extends Mapper<LongWritable, Text, FlightComparable, Text> {
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException,
             InterruptedException {
@@ -20,8 +19,8 @@ public class FlightMapper extends Mapper<LongWritable, Text, Text, IntWritable> 
             double cancelled = Double.parseDouble(column[20]);
             if(cancelled == 1.00) {
                 context.write(new FlightComparable(airportId, 0.00, 0.00, true), value);
-            }else {
-
+            }else (){
+                context.write(new FlightComparable(airportId, 0.00, 0.00, true), value);
             }
         }
     }

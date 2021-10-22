@@ -42,10 +42,13 @@ public class FlightComparable implements WritableComparable {
         FlightComparable a = (FlightComparable) o;
         if((!this.cancelled && a.cancelled)
                 || (this.delayTime > a.delayTime)
-                || (this.airTime > a.airTime)
-                || (this.airportId)){
+                || (this.airportId > a.airportId)
+                || (this.airTime > a.airTime)){
             return 1;
-        } else if(!a.cancelled && this.cancelled){
+        } else  if((this.cancelled && !a.cancelled)
+                || (this.delayTime < a.delayTime)
+                || (this.airportId < a.airportId)
+                || (this.airTime < a.airTime)){
             return -1;
         }
         return 0;

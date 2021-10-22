@@ -59,4 +59,6 @@ public class FlightComparable implements WritableComparable {
         return ("bmstu.FlightComparable:" + " airportId = " + airportId + " delayTime = "
                 + delayTime + " airTime = " + airTime + " cancelled = " + cancelled);
     }
+
+    public 
 }

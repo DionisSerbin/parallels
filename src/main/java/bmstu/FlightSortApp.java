@@ -26,7 +26,7 @@ public class FlightSortApp {
         job.setReducerClass(FlightReducer.class);
         job.setPartitionerClass(FlightPartitioner.class);
         job.setMapOutputKeyClass(FlightGroupingComparator.class);
-        job.setMapOutputValueClass();
+        job.setMapOutputValueClass(Text.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
 

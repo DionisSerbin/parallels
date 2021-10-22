@@ -9,8 +9,8 @@ public class FlightReducer extends Reducer<FlightComparable, Text, String, Text>
 
     @Override
     protected void reduce(FlightComparable key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
-        for(){
-            context.write(key.toString(), new Text(text.to));
+        for(Text ){
+            context.write(key.toString(), new Tex);
         }
     }
 }

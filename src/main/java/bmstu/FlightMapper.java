@@ -20,7 +20,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, FlightComparable, T
             } else {
                 delayTime = 0.0f;
             }
-            double airTime = 0;
+            float airTime = 0;
             if (!column[21].equals("")) {
                 airTime = Float.parseFloat(column[21]);
             } else {

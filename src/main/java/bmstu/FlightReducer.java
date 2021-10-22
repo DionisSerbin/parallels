@@ -10,10 +10,5 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 
 public class FlightReducer extends Reducer<FlightComparable, Text, String, Text> {
-    @Override
-    protected void reduce(Text key, Iterable<IntWritable> values, Context context) throws
-            IOException, InterruptedException {
 
-        context.write(key, new LongWritable());
-    }
 }

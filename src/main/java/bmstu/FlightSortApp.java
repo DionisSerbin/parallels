@@ -18,7 +18,7 @@ public class FlightSortApp {
 
         Job job = Job.getInstance();
         job.setJarByClass(FlightSortApp.class);
-        job.setJobName("Word count");
+        job.setJobName("Flight sort");
         FileInputFormat.addInputPath(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
 

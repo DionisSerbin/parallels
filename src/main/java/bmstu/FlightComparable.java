@@ -41,7 +41,8 @@ public class FlightComparable implements WritableComparable {
     public int compareTo(Object o) {
         FlightComparable a = (FlightComparable) o;
         if((!this.cancelled && a.cancelled)
-                || (this.delayTime)){
+                || (this.delayTime > a.delayTime)
+                || ()){
             return 1;
         } else if(!a.cancelled && this.cancelled){
             return -1;

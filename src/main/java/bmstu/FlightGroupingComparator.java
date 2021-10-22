@@ -1,4 +1,4 @@
 package bmstu;
 
-public class FlightGroupingComparator {
+public class FlightGroupingComparator extends  {
 }

@@ -50,7 +50,7 @@ public class FlightComparable implements WritableComparable {
                 || (this.airportId < a.airportId)
                 || (this.airTime < a.airTime)){
             return -1;
-        }
+        } 
         return 0;
     }
 }

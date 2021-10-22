@@ -19,7 +19,7 @@ public class FlightComparable implements WritableComparable {
         this.airTime = airTime;
         this.cancelled = cancelled;
     }
-    
+
     @Override
     public void write(DataOutput d) throws IOException {
         d.writeInt(airportId);
@@ -39,6 +39,7 @@ public class FlightComparable implements WritableComparable {
 
     @Override
     public int compareTo(Object o) {
+
         return 0;
     }
 }

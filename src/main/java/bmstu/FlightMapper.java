@@ -26,8 +26,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, FlightComparable, T
             } else {
                 delayTime = 0.0f;
             }
-            double cancelled = Double.parseDouble(column[19]);
-            if(cancelled == 1.00) {
+            if(column[19].equals("1.00")) {
                 context.write(new FlightComparable(airportId, 0.00, 0.00, true), value);
             }else if (delayTime > 0.0f){
                 context.write(new FlightComparable(airportId, delayTime, airTime, false), value);

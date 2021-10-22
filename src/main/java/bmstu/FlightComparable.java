@@ -9,11 +9,11 @@ import java.io.IOException;
 public class FlightComparable implements WritableComparable {
 
     int airportId;
-    double delayTime;
-    double airTime;
+    float delayTime;
+    float airTime;
     boolean cancelled;
 
-    public FlightComparable(int airportId, double delayTime, double airTime, boolean cancelled){
+    public FlightComparable(int airportId, float delayTime, float airTime, boolean cancelled){
         this.airportId = airportId;
         this.delayTime = delayTime;
         this.airTime = airTime;
@@ -23,16 +23,16 @@ public class FlightComparable implements WritableComparable {
     @Override
     public void write(DataOutput d) throws IOException {
         d.writeInt(airportId);
-        d.writeDouble(delayTime);
-        d.writeDouble(airTime);
+        d.writeFloat(delayTime);
+        d.writeFloat(airTime);
         d.writeBoolean(cancelled);
     }
 
     @Override
     public void readFields(DataInput d) throws IOException {
         airportId = d.readInt();
-        delayTime = d.readDouble();
-        airTime = d.readDouble();
+        delayTime = d.readFloat();
+        airTime = d.readFloat();
         cancelled = d.readBoolean();
     }
 

@@ -12,7 +12,9 @@ public class AirWritableComparable implements WritableComparable<AirWritableComp
     private  final IntWritable airportId;
     private final IntWritable index;
 
-    protected 
+    protected IntWritable getAirportId(){
+        
+    }
 
 
     public AirWritableComparable(IntWritable intWritable, IntWritable intWritable1) {

@@ -45,7 +45,7 @@ public class JoinReducer extends Reducer<AirWritableComparable, Text, Text, Text
 
     }
 
-    protected ArrayList<String> makeDelay(ArrayList){}
+    protected ArrayList<String> makeDelay(Iterator){}
 
 
 }

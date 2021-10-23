@@ -36,10 +36,10 @@ public class AirWritableComparable implements WritableComparable<AirWritableComp
     }
 
 
-    @Override
-    public int hashCode() {
-        return this.toString().hashCode();
-    }
+//    @Override
+//    public int hashCode() {
+//        return this.toString().hashCode();
+//    }
 
 
 

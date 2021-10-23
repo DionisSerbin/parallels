@@ -46,8 +46,8 @@ public class JoinReducer extends Reducer<AirWritableComparable, Text, Text, Text
                 max = delayTimeNow;
             }
         }
-        return new Text("Average summ of delays = " + summ / i
-                + ", minimal delay = " + min + ", maximal delay" + max);
+        return new Text("Average summ of delays = " + summ / delayTime.size()
+                + ", minimal delay = " + min + ", maximal delay = " + max);
     }
 
 

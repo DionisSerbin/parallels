@@ -1,4 +1,4 @@
-package bmstu;
+package ru.bmstu.iu9;
 
 import java.io.IOException;
 
@@ -8,6 +8,8 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
 public class FlightMapper extends Mapper<LongWritable, Text, AirWritableComparable, Text> {
+    
+
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException,
             InterruptedException {

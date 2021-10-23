@@ -1,4 +1,4 @@
-package bmstu;
+package ru.bmstu.iu9;
 
 import java.io.IOException;
 import java.util.ArrayList;

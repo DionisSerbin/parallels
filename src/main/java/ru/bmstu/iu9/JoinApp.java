@@ -1,4 +1,4 @@
-package bmstu;
+package ru.bmstu.iu9;
 
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;

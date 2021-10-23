@@ -7,7 +7,7 @@ import org.apache.hadoop.io.Text;
         import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 
-public class FlightSortApp {
+public class JoinApp {
     public static void main(String[] args) throws Exception {
 
         if (args.length != 2) {
@@ -16,13 +16,13 @@ public class FlightSortApp {
         }
 
         Job job = Job.getInstance();
-        job.setJarByClass(FlightSortApp.class);
+        job.setJarByClass(JoinApp.class);
         job.setJobName("Flight sort");
         FileInputFormat.addInputPath(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
         job.setMapperClass(FlightMapper.class);
-        job.setReducerClass(FlightReducer.class);
+        job.setReducerClass(JoinReducer.class);
         job.setPartitionerClass(FlightPartitioner.class);
         job.setGroupingComparatorClass(FlightGroupingComparator.class);
         job.setMapOutputKeyClass(AirWritableComparable.class);

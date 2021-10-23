@@ -1,17 +1,17 @@
 package bmstu;
 
 import java.io.IOException;
+import java.util.Iterator;
+
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
 
-public class FlightReducer extends Reducer<AirWritableComparable, Text, String, Text> {
+public class JoinReducer extends Reducer<AirWritableComparable, Text, Text, Text> {
 
     @Override
     protected void reduce(AirWritableComparable key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
-        for(Text t : values){
-            context.write("Flight[key]: = [" + key.toString() + "]",
-                     new Text("Flight_information[values] = [" + t.toString() + "]"));
-        }
+        Iterator<Text> iter = values.iterator();
+        Text airName = new Text(iter.next().toString());
     }
 }

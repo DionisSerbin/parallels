@@ -48,8 +48,8 @@ public class AirWritableComparable implements WritableComparable<AirWritableComp
 
     @Override
     public int compareTo(AirWritableComparable o) {
-        if(this.airportId.compareTo(o.airportId) == 0){
-            return this.index.compareTo(o.index);
+        if(this.getAirportId().compareTo(o.getAirportId()) == 0){
+            return this.getAirportId().compareTo(o.getAirportId());
         } else {
             return 0;
         }

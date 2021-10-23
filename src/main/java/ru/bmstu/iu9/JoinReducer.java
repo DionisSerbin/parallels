@@ -16,13 +16,10 @@ public class JoinReducer extends Reducer<AirWritableComparable, Text, Text, Text
         Iterator<Text> iter = values.iterator();
         Text airName = new Text(iter.next().toString());
         ArrayList<String> delayTime = new ArrayList<>();
-            delayTime = makeDelay(iter);
+        delayTime = makeDelay(iter);
         if(delayTime.size() > 0){
-            context.write(airName, makeMinMaxAverage(delayTime)
+            context.write(airName, makeMinMaxAverage(delayTime));
         }
-        context.write(airName, new Text("Average summ of delays = " + summ / i
-                + ", minimal delay = " + min + ", maximal delay" + max));
-
     }
 
     protected ArrayList<String> makeDelay(Iterator<Text> iter){

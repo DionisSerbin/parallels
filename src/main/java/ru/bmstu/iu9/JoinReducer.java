@@ -18,7 +18,7 @@ public class JoinReducer extends Reducer<AirWritableComparable, Text, Text, Text
         ArrayList<String> delayTime = new ArrayList<>();
             delayTime = makeDelay(iter);
         if(delayTime.size() > 0){
-            
+
         }
         // add delays
         //calculate delays
@@ -50,6 +50,10 @@ public class JoinReducer extends Reducer<AirWritableComparable, Text, Text, Text
             }
         }
         return delayTime;
+    }
+
+    protected ArrayList<String> makeMinMaxAverage(Iterator<Text> iter){
+
     }
 
 

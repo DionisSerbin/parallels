@@ -18,23 +18,7 @@ public class JoinReducer extends Reducer<AirWritableComparable, Text, Text, Text
         ArrayList<String> delayTime = new ArrayList<>();
             delayTime = makeDelay(iter);
         if(delayTime.size() > 0){
-
-        }
-        // add delays
-        //calculate delays
-        float min = Float.MAX_VALUE;
-        float max = -1;
-        float summ = 0;
-        int i;
-        for (i = 0; i < delayTime.size(); i++){
-            float delayTimeNow = Float.parseFloat(delayTime.get(i));
-            summ += delayTimeNow;
-            if(delayTimeNow < min){
-                min = delayTimeNow;
-            }
-            if(delayTimeNow > max){
-                max = delayTimeNow;
-            }
+            context.write(airName, makeMinMaxAverage(delayTime)
         }
         context.write(airName, new Text("Average summ of delays = " + summ / i
                 + ", minimal delay = " + min + ", maximal delay" + max));
@@ -52,7 +36,7 @@ public class JoinReducer extends Reducer<AirWritableComparable, Text, Text, Text
         return delayTime;
     }
 
-    protected ArrayList<String> makeMinMaxAverage(ArrayList<String> delayTime){
+    protected Text makeMinMaxAverage(ArrayList<String> delayTime){
         float min = Float.MAX_VALUE;
         float max = -1;
         float summ = 0;
@@ -67,7 +51,8 @@ public class JoinReducer extends Reducer<AirWritableComparable, Text, Text, Text
                 max = delayTimeNow;
             }
         }
-        return 
+        return new Text("Average summ of delays = " + summ / i
+                + ", minimal delay = " + min + ", maximal delay" + max);
     }
 
 

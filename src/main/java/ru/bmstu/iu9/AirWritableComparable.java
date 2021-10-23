@@ -9,8 +9,10 @@ import java.io.IOException;
 
 public class AirWritableComparable implements WritableComparable<AirWritableComparable> {
 
-    private  IntWritable airportId;
-    IntWritable index;
+    private  final IntWritable airportId;
+    private final IntWritable index;
+
+    
 
 
     public AirWritableComparable(IntWritable intWritable, IntWritable intWritable1) {

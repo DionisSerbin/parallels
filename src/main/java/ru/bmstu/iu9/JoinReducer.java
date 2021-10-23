@@ -6,7 +6,6 @@ import java.util.Iterator;
 
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
-import org.apache.hadoop.yarn.webapp.hamlet.Hamlet;
 
 
 public class JoinReducer extends Reducer<AirWritableComparable, Text, Text, Text> {

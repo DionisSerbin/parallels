@@ -8,7 +8,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
 public class FlightMapper extends Mapper<LongWritable, Text, AirWritableComparable, Text> {
-    
+    private static final String = 
 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException,

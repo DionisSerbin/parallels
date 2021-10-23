@@ -52,7 +52,7 @@ public class JoinReducer extends Reducer<AirWritableComparable, Text, Text, Text
         return delayTime;
     }
 
-    protected ArrayList<String> makeMinMaxAverage(Iterator<Text> iter){
+    protected ArrayList<String> makeMinMaxAverage(ArrayList<String> delayTime){
         float min = Float.MAX_VALUE;
         float max = -1;
         float summ = 0;

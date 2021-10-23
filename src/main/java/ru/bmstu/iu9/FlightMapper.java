@@ -9,7 +9,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 public class FlightMapper extends Mapper<LongWritable, Text, AirWritableComparable, Text> {
     private static final int DEST_AIRPORT_ID = 14;
-    private static final int ARR_DELAY = 18;
+    private static final int ARR_DELAY = 17;
     private static final String NULL_STR = "";
 
     @Override

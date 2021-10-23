@@ -7,7 +7,7 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class AirWritableComparable implements WritableComparable {
+public class AirWritableComparable implements WritableComparable<AirWritableComparable> {
 
     int airportId;
     float delayTime;
@@ -96,5 +96,10 @@ public class AirWritableComparable implements WritableComparable {
             return false;
         }
         return airportId == a.airportId;
+    }
+
+    @Override
+    public int compareTo(AirWritableComparable o) {
+        return 0;
     }
 }

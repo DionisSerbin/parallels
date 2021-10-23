@@ -16,8 +16,9 @@ public class JoinReducer extends Reducer<AirWritableComparable, Text, Text, Text
         Iterator<Text> iter = values.iterator();
         Text airName = new Text(iter.next().toString());
         ArrayList<String> delayTime = new ArrayList<>();
-        if(delayTime.size() > 0){
             delayTime = makeDelay(iter);
+        if(delayTime.size() > 0){
+            
         }
         // add delays
         //calculate delays

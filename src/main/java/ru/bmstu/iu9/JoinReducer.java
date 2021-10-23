@@ -15,8 +15,7 @@ public class JoinReducer extends Reducer<AirWritableComparable, Text, Text, Text
     protected void reduce(AirWritableComparable key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
         Iterator<Text> iter = values.iterator();
         Text airName = new Text(iter.next().toString());
-        ArrayList<String> delayTime = new ArrayList<>();
-        delayTime = makeDelay(iter);
+        ArrayList<String> delayTime = makeDelay(iter);
         if(delayTime.size() > 0){
             context.write(airName, makeMinMaxAverage(delayTime));
         }

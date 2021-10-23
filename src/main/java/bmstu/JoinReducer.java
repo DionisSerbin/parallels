@@ -17,7 +17,7 @@ public class JoinReducer extends Reducer<AirWritableComparable, Text, Text, Text
         ArrayList<String> delayTime = new ArrayList<>();
         // add delays
         while (iter.hasNext()){
-            if (iter.next().toString().matches("\\s+.\\s+$")){
+            if (iter.next().toString().matches("^\\d+\\.\\d+$")){
                 String added = iter.next().toString();
                 delayTime.add(added);
             }

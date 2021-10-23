@@ -13,7 +13,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, AirWritableComparab
             InterruptedException {
         String line = value.toString();
         String[] column = line.split(",");
-        if(key.get() > 0){
+        if(column[14].equals("DEST_AIRPORT_ID")){
             //DEST_AIRPORT_ID = 14 ARR_DELAY = 18 AIR_TIME = 21 IS_CANCELLED = 19
             int airportId = Integer.parseInt(column[14]);
             float delayTime = Float.parseFloat(column[18]);

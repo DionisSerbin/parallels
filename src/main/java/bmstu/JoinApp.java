@@ -31,8 +31,7 @@ public class JoinApp {
         job.setGroupingComparatorClass(FlightGroupingComparator.class);
         job.setReducerClass(JoinReducer.class);
         job.setMapOutputKeyClass(AirWritableComparable.class);
-        job.setMapOutputValueClass(Text.class);
-        job.setOutputKeyClass(String.class);
+        job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
 
         job.setNumReduceTasks(2);

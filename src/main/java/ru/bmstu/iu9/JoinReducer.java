@@ -45,5 +45,7 @@ public class JoinReducer extends Reducer<AirWritableComparable, Text, Text, Text
 
     }
 
-    
+    protected ArrayList
+
+
 }

@@ -11,16 +11,15 @@ public class FlightMapper extends Mapper<LongWritable, Text, AirWritableComparab
     private static final int DEST_AIRPORT_ID = 14;
     private static final int ARR_DELAY = 18;
     private static final String NULL_STR = "";
+    private static final String DEST_AIRPORT_ID_STRING = "\"DEST_AIRPORT_ID\"";
 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException,
             InterruptedException {
         String line = value.toString();
         String[] column = line.split(",");
-        if(!column[DEST_AIRPORT_ID].equals("DEST_AIRPORT_ID")){
-            //DEST_AIRPORT_ID = 14 ARR_DELAY = 18 AIR_TIME = 21 IS_CANCELLED = 19
+        if(!column[DEST_AIRPORT_ID].equals(DEST_AIRPORT_ID_STRING)){
             int airportId = Integer.parseInt(column[DEST_AIRPORT_ID]);
-            float delayTime = Float.parseFloat(column[ARR_DELAY]);
             if (!column[ARR_DELAY].equals(NULL_STR)) {
                 context.write(new AirWritableComparable(new IntWritable(airportId),
                         new IntWritable(1)), new Text(column[ARR_DELAY]));

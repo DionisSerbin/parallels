@@ -25,8 +25,7 @@ public class JoinReducer extends Reducer<AirWritableComparable, Text, Text, Text
         while (iter.hasNext()){
             String value = iter.next().toString();
             if (value.matches("^\\d+\\.\\d+$")){
-                String added = value;
-                delayTime.add(added);
+                delayTime.add(value);
             }
         }
         return delayTime;

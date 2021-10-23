@@ -5,7 +5,7 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-public class FlightMapper extends Mapper<LongWritable, Text, FlightWritableComparable, Text> {
+public class FlightMapper extends Mapper<LongWritable, Text, AirWritableComparable, Text> {
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException,
             InterruptedException {
@@ -16,7 +16,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, FlightWritableCompa
             int airportId = Integer.parseInt(column[14]);
             float delayTime = Float.parseFloat(column[18]);
             if (!column[18].equals("")) {
-                context.write();
+                context.write(new AirWritableComparable());
             }
 
         }

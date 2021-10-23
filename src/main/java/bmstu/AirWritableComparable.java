@@ -6,21 +6,21 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class FlightWritableComparable implements WritableComparable {
+public class AirWritableComparable implements WritableComparable {
 
     int airportId;
     float delayTime;
     float airTime;
     boolean cancelled;
 
-    public FlightWritableComparable(int airportId, float delayTime, float airTime, boolean cancelled){
+    public AirWritableComparable(int airportId, float delayTime, float airTime, boolean cancelled){
         this.airportId = airportId;
         this.delayTime = delayTime;
         this.airTime = airTime;
         this.cancelled = cancelled;
     }
 
-    public FlightWritableComparable(){}
+    public AirWritableComparable(){}
 
     @Override
     public void write(DataOutput d) throws IOException {
@@ -41,7 +41,7 @@ public class FlightWritableComparable implements WritableComparable {
 
     @Override
     public int compareTo(Object o) {
-        FlightWritableComparable a = (FlightWritableComparable) o;
+        AirWritableComparable a = (AirWritableComparable) o;
         if((this.cancelled && !a.cancelled)
                 || (this.delayTime > a.delayTime)
                 || (this.airportId > a.airportId)
@@ -63,7 +63,7 @@ public class FlightWritableComparable implements WritableComparable {
     }
 
     public int delayCompare(Object o){
-        FlightWritableComparable a = (FlightWritableComparable) o;
+        AirWritableComparable a = (AirWritableComparable) o;
         if(this.delayTime > a.delayTime) {
             return 1;
         } else if(this.delayTime < a.delayTime){
@@ -85,7 +85,7 @@ public class FlightWritableComparable implements WritableComparable {
             return false;
         }
 
-        FlightWritableComparable a = (FlightWritableComparable) obj;
+        AirWritableComparable a = (AirWritableComparable) obj;
         if(cancelled != a.cancelled
                 || Float.compare(a.airTime, delayTime) != 0
                 || Float.compare(a.delayTime, delayTime) != 0){

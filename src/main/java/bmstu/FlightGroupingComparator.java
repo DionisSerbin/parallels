@@ -13,6 +13,6 @@ public class FlightGroupingComparator extends WritableComparator {
     public int compare(WritableComparable a, WritableComparable b) {
         AirWritableComparable aa = (AirWritableComparable) a;
         AirWritableComparable bb = (AirWritableComparable) b;
-        return aa.delayCompare(bb);
+        return aa.airportId.compareTo(bb.airportId);
     }
 }

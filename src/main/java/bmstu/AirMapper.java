@@ -15,7 +15,7 @@ public class AirMapper extends Mapper<LongWritable, Text, AirWritableComparable,
         String[] column = line.split(",", 2);
         String airportId = column[0].replaceAll("\"", "");
         String airportName = column[1].replaceAll("\"", "");
-        if(!(airportId == "Code")){
+        if(!(airportId.equals("Code"))){
             context.write(new AirWritableComparable(
                     new IntWritable(Integer.parseInt(airportId)), new IntWritable(0) ),
                     new Text(airportName));

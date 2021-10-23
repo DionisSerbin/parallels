@@ -9,55 +9,24 @@ import java.io.IOException;
 
 public class AirWritableComparable implements WritableComparable<AirWritableComparable> {
 
-    int airportId;
-    float delayTime;
-    float airTime;
-    boolean cancelled;
+    IntWritable airportId;
+    IntWritable index;
 
-    public AirWritableComparable(int airportId, float delayTime, float airTime, boolean cancelled){
-        this.airportId = airportId;
-        this.delayTime = delayTime;
-        this.airTime = airTime;
-        this.cancelled = cancelled;
-    }
-
-    public AirWritableComparable(){}
 
     public AirWritableComparable(IntWritable intWritable, IntWritable intWritable1) {
+        this.airportId = intWritable;
     }
 
     @Override
     public void write(DataOutput d) throws IOException {
-        d.writeInt(airportId);
-        d.writeFloat(delayTime);
-        d.writeFloat(airTime);
-        d.writeBoolean(cancelled);
+        airportId.write(d);
+        index.write(d);
     }
 
     @Override
     public void readFields(DataInput d) throws IOException {
-        airportId = d.readInt();
-        delayTime = d.readFloat();
-        airTime = d.readFloat();
-        cancelled = d.readBoolean();
-    }
-
-
-    @Override
-    public int compareTo(Object o) {
-        AirWritableComparable a = (AirWritableComparable) o;
-        if((this.cancelled && !a.cancelled)
-                || (this.delayTime > a.delayTime)
-                || (this.airportId > a.airportId)
-                || (this.airTime > a.airTime)){
-            return 1;
-        } else  if((!this.cancelled && a.cancelled)
-                || (this.delayTime < a.delayTime)
-                || (this.airportId < a.airportId)
-                || (this.airTime < a.airTime)){
-            return -1;
-        }
-        return 0;
+        airportId.readFields(d);
+        index.readFields(d);
     }
 
     @Override

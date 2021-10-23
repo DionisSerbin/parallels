@@ -16,19 +16,6 @@ public class AirWritableComparable implements WritableComparable<AirWritableComp
         return this.airportId;
     }
 
-    protected IntWritable getIndex(){
-        return this.index;
-    }
-
-    protected void setIndex(IntWritable a){
-        this.index = a;
-    }
-
-    protected void setAirportId(IntWritable a){
-        this.airportId = a;
-    }
-
-
     public AirWritableComparable(IntWritable intWritable, IntWritable intWritable1) {
         this.airportId = intWritable;
         this.index = intWritable1;

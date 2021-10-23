@@ -20,7 +20,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, AirWritableComparab
         String[] column = line.split(",");
         if(!column[DEST_AIRPORT_ID].equals(DEST_AIRPORT_ID_STRING)){
             int airportId = Integer.parseInt(column[DEST_AIRPORT_ID]);
-            if (!column[ARR_DELAY].equals(NULL_STR)) {
+            if (!column[ARR_DELAY].isEmpty()) {
                 context.write(new AirWritableComparable(new IntWritable(airportId),
                         new IntWritable(1)), new Text(column[ARR_DELAY]));
             }

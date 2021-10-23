@@ -7,7 +7,7 @@ public class FlightPartitioner extends Partitioner<AirWritableComparable, Text> 
 
     @Override
     public int getPartition(AirWritableComparable airWritableComparable, Text text, int amountReducers) {
-        int returned = Math.abs(airWritableComparable.airportId.hashCode());
+        int returned = Math.abs(airWritableComparable.getAirportId().hashCode());
         return returned % amountReducers;
     }
 }

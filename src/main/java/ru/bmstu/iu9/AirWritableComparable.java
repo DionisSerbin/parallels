@@ -9,11 +9,23 @@ import java.io.IOException;
 
 public class AirWritableComparable implements WritableComparable<AirWritableComparable> {
 
-    private  final IntWritable airportId;
-    private final IntWritable index;
+    private IntWritable airportId;
+    private IntWritable index;
 
     protected IntWritable getAirportId(){
-        
+        return this.airportId;
+    }
+
+    protected IntWritable getIndex(){
+        return this.index;
+    }
+
+    protected void setIndex(IntWritable a){
+        this.index = a;
+    }
+
+    protected void setAirportId(IntWritable a){
+        this.airportId = a;
     }
 
 

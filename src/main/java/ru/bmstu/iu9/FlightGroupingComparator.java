@@ -11,8 +11,8 @@ public class FlightGroupingComparator extends WritableComparator {
 
     @Override
     public int compare(WritableComparable a, WritableComparable b) {
-        AirWritableComparable aa = (AirWritableComparable) a;
-        AirWritableComparable bb = (AirWritableComparable) b;
-        return aa.airportId.compareTo(bb.airportId);
+        AirWritableComparable first = (AirWritableComparable) a;
+        AirWritableComparable second = (AirWritableComparable) b;
+        return first.getAirportId().compareTo(second.getAirportId());
     }
 }

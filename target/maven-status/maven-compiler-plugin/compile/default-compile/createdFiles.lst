@@ -1,7 +1,7 @@
-bmstu/AirWritableComparable.class
-bmstu/FlightGroupingComparator.class
-bmstu/FlightMapper.class
-bmstu/JoinReducer.class
-bmstu/JoinApp.class
-bmstu/AirMapper.class
-bmstu/FlightPartitioner.class
+ru/bmstu/iu9/FlightPartitioner.class
+ru/bmstu/iu9/FlightMapper.class
+ru/bmstu/iu9/AirMapper.class
+ru/bmstu/iu9/FlightGroupingComparator.class
+ru/bmstu/iu9/JoinApp.class
+ru/bmstu/iu9/AirWritableComparable.class
+ru/bmstu/iu9/JoinReducer.class

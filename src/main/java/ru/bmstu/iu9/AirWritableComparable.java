@@ -16,6 +16,10 @@ public class AirWritableComparable implements WritableComparable<AirWritableComp
         return this.airportId;
     }
 
+    protected IntWritable getIndex(){
+        return this.index;
+    }
+
     public AirWritableComparable(IntWritable intWritable, IntWritable intWritable1) {
         this.airportId = intWritable;
         this.index = intWritable1;
@@ -49,7 +53,7 @@ public class AirWritableComparable implements WritableComparable<AirWritableComp
     @Override
     public int compareTo(AirWritableComparable o) {
         if(this.getAirportId().compareTo(o.getAirportId()) == 0){
-            return this.getAirportId().compareTo(o.getAirportId());
+            return this.getIndex().compareTo(o.getIndex());
         } else {
             return 0;
         }

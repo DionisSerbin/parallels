@@ -15,6 +15,9 @@ public class JoinReducer extends Reducer<AirWritableComparable, Text, Text, Text
         Iterator<Text> iter = values.iterator();
         Text airName = new Text(iter.next().toString());
         ArrayList<String> delayTime = new ArrayList<>();
+        if(delayTime.size() > 0){
+
+        }
         // add delays
         while (iter.hasNext()){
             if (iter.next().toString().matches("^\\d+\\.\\d+$")){
@@ -41,4 +44,6 @@ public class JoinReducer extends Reducer<AirWritableComparable, Text, Text, Text
                 + ", minimal delay = " + min + ", maximal delay" + max));
 
     }
+
+    
 }

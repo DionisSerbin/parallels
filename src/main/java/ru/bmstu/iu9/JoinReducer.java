@@ -45,7 +45,14 @@ public class JoinReducer extends Reducer<AirWritableComparable, Text, Text, Text
 
     }
 
-    protected ArrayList<String> makeDelay(Iterator){}
+    protected ArrayList<String> makeDelay(Iterator<Text> iter){
+        while (iter.hasNext()){
+            if (iter.next().toString().matches("^\\d+\\.\\d+$")){
+                String added = iter.next().toString();
+                delayTime.add(added);
+            }
+        }
+    }
 
 
 }

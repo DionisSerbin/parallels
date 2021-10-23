@@ -1,6 +1,8 @@
 package bmstu;
 
 import java.io.IOException;
+
+import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -16,7 +18,8 @@ public class FlightMapper extends Mapper<LongWritable, Text, AirWritableComparab
             int airportId = Integer.parseInt(column[14]);
             float delayTime = Float.parseFloat(column[18]);
             if (!column[18].equals("")) {
-                context.write(new AirWritableComparable());
+                context.write(new AirWritableComparable(new IntWritable(airportId),
+                        new IntWritable(1)), new Text(column[18]));
             }
 
         }

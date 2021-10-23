@@ -1,5 +1,6 @@
 package bmstu;
 
+import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.WritableComparable;
 
 import java.io.DataInput;
@@ -21,6 +22,9 @@ public class AirWritableComparable implements WritableComparable {
     }
 
     public AirWritableComparable(){}
+
+    public AirWritableComparable(IntWritable intWritable, IntWritable intWritable1) {
+    }
 
     @Override
     public void write(DataOutput d) throws IOException {

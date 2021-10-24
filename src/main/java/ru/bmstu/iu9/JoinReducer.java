@@ -39,23 +39,28 @@ public class JoinReducer extends Reducer<AirportWritableComparable, Text, Text, 
         return delaysTime;
     }
 
-    protected Text makeMinMaxAverage(ArrayList<String> delayTime){
+    protected Text makeMinMaxAverage(ArrayList<String> delaysTime){
         float min = Float.MAX_VALUE;
         float max = 0;
         float sum = 0;
-        int i;
-        for (i = 0; i < delayTime.size(); i++){
-            float delayTimeNow = Float.parseFloat(delayTime.get(i));
-            sum += delayTimeNow;
+
+        for (int i = 0; i < delaysTime.size(); i++){
+            float delayTimeNow = Float.parseFloat(
+                    delaysTime.get(i)
+            );
             if(delayTimeNow < min){
                 min = delayTimeNow;
             }
             if(delayTimeNow > max){
                 max = delayTimeNow;
             }
+            sum += delayTimeNow;
         }
-        return new Text("Average summ of delays = " + sum / delayTime.size()
-                + ", minimal delay = " + min + ", maximal delay = " + max);
+        return new Text(
+                "Average sum of delays = " + sum / delaysTime.size()
+                + ", minimal delay = " + min
+                        + ", maximal delay = " + max
+        );
     }
 
 

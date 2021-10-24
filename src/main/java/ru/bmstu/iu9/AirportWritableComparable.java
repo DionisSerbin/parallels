@@ -7,7 +7,7 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class AirWritableComparable implements WritableComparable<AirWritableComparable> {
+public class AirportWritableComparable implements WritableComparable<AirportWritableComparable> {
 
     private IntWritable airportId;
     private IntWritable index;
@@ -20,12 +20,12 @@ public class AirWritableComparable implements WritableComparable<AirWritableComp
         return this.index;
     }
 
-    public AirWritableComparable(IntWritable intWritable, IntWritable intWritable1) {
+    public AirportWritableComparable(IntWritable intWritable, IntWritable intWritable1) {
         this.airportId = intWritable;
         this.index = intWritable1;
     }
 
-    public AirWritableComparable(){
+    public AirportWritableComparable(){
         airportId = new IntWritable(0);
         index = new IntWritable(0);
     }
@@ -51,7 +51,7 @@ public class AirWritableComparable implements WritableComparable<AirWritableComp
 
 
     @Override
-    public int compareTo(AirWritableComparable o) {
+    public int compareTo(AirportWritableComparable o) {
         if(this.getAirportId().compareTo(o.getAirportId()) == 0){
             return this.getIndex().compareTo(o.getIndex());
         } else {

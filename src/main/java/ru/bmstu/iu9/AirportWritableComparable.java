@@ -9,53 +9,49 @@ import java.io.IOException;
 
 public class AirportWritableComparable implements WritableComparable<AirportWritableComparable> {
 
-    private IntWritable airportId;
-    private IntWritable index;
+    private final IntWritable airportId;
+    private final IntWritable dataIndex;
 
     protected IntWritable getAirportId(){
         return this.airportId;
     }
 
-    protected IntWritable getIndex(){
-        return this.index;
+    protected IntWritable getDataIndex(){
+        return this.dataIndex;
     }
 
-    public AirportWritableComparable(IntWritable intWritable, IntWritable intWritable1) {
-        this.airportId = intWritable;
-        this.index = intWritable1;
+    public AirportWritableComparable(IntWritable airportId, IntWritable dataIndex) {
+        this.airportId = airportId;
+        this.dataIndex = dataIndex;
     }
 
     public AirportWritableComparable(){
         airportId = new IntWritable(0);
-        index = new IntWritable(0);
+        dataIndex = new IntWritable(0);
     }
 
     @Override
-    public void write(DataOutput d) throws IOException {
-        airportId.write(d);
-        index.write(d);
+    public void write(DataOutput dataOutput) throws IOException {
+        airportId.write(dataOutput);
+        dataIndex.write(dataOutput);
     }
 
     @Override
-    public void readFields(DataInput d) throws IOException {
-        airportId.readFields(d);
-        index.readFields(d);
+    public void readFields(DataInput dataInput) throws IOException {
+        airportId.readFields(dataInput);
+        dataIndex.readFields(dataInput);
     }
-
-
-//    @Override
-//    public int hashCode() {
-//        return this.toString().hashCode();
-//    }
-
-
 
     @Override
     public int compareTo(AirportWritableComparable o) {
-        if(this.getAirportId().compareTo(o.getAirportId()) == 0){
-            return this.getIndex().compareTo(o.getIndex());
-        } else {
-            return 0;
+        int compareAirportId = this.getAirportId().compareTo(
+                o.getAirportId()
+        );
+        if (compareAirportId == 0){
+            return this.getDataIndex().compareTo(
+                    o.getDataIndex()
+            );
         }
+        return compareAirportId;
     }
 }

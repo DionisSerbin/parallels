@@ -13,18 +13,28 @@ public class AirportMapper extends Mapper<LongWritable, Text, AirportWritableCom
     private static final String POINT = ",";
     private static final String QUOTES = "\"";
     private static final String NULL_STR = "";
-    private static final int 
+    private static final int LIMIT_POINT = 2;
+    private static final int AIRPORT_DATA_INDEX = 0;
+    private static final int AIRPORT_NAME_INDEX = 1;
 
+    private static String removeQuotes(final String data){
+        return data.replaceAll(QUOTES, NULL_STR);
+    }
 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         String line = value.toString();
-        String[] column = line.split(POINT, 2);
-        String airportId = column[0].replaceAll(QUOTES, NULL_STR);
-        String airportName = column[1].replaceAll(QUOTES, NULL_STR);
+        String[] column = line.split(POINT, LIMIT_POINT);
+
+        String airportId = removeQuotes(column[AIRPORT_DATA_INDEX]);
+        String airportName = removeQuotes(column[AIRPORT_NAME_INDEX]);
+
         if(!(airportId.equals(CODE))){
-            context.write(new AirportWritableComparable(
-                    new IntWritable(Integer.parseInt(airportId)), new IntWritable(0) ),
+            int airportIdParse = Integer.parseInt(airportId);
+            context.write(
+                    new AirportWritableComparable(
+                            new IntWritable(airportIdParse),
+                            new IntWritable(AIRPORT_DATA_INDEX) ),
                     new Text(airportName));
         }
     }

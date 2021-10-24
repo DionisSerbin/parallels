@@ -10,25 +10,33 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 public class JoinReducer extends Reducer<AirportWritableComparable, Text, Text, Text> {
 
+    private static final String FLOAT_REGEX = "^\\d+\\.\\d+$";
+
     @Override
     protected void reduce(AirportWritableComparable key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
         Iterator<Text> iter = values.iterator();
-        Text airName = new Text(iter.next().toString());
-        ArrayList<String> delayTime = makeDelay(iter);
-        if(delayTime.size() > 0){
-            context.write(airName, makeMinMaxAverage(delayTime));
+        Text airportName = new Text(
+                iter.next().toString()
+        );
+        ArrayList<String> delaysTime = getDelays(iter);
+
+        if(delaysTime.size() > 0){
+            context.write(
+                    airportName,
+                    makeMinMaxAverage(delaysTime)
+            );
         }
     }
 
-    protected ArrayList<String> makeDelay(Iterator<Text> iter){
-        ArrayList<String> delayTime = new ArrayList<>();
+    protected ArrayList<String> getDelays(Iterator<Text> iter){
+        ArrayList<String> delaysTime = new ArrayList<>();
         while (iter.hasNext()){
             String value = iter.next().toString();
-            if (value.matches("^\\d+\\.\\d+$")){
-                delayTime.add(value);
+            if (value.matches(FLOAT_REGEX)){
+                delaysTime.add(value);
             }
         }
-        return delayTime;
+        return delaysTime;
     }
 
     protected Text makeMinMaxAverage(ArrayList<String> delayTime){

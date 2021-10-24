@@ -20,7 +20,7 @@ public class JoinReducer extends Reducer<AirportWritableComparable, Text, Text, 
         );
         ArrayList<String> delaysTime = getDelays(iter);
 
-        if(delaysTime.size() > 0){
+        if(!delaysTime.isEmpty()){
             context.write(
                     airportName,
                     makeMinMaxAverage(delaysTime)
@@ -41,12 +41,12 @@ public class JoinReducer extends Reducer<AirportWritableComparable, Text, Text, 
 
     protected Text makeMinMaxAverage(ArrayList<String> delayTime){
         float min = Float.MAX_VALUE;
-        float max = -1;
-        float summ = 0;
+        float max = 0;
+        float sum = 0;
         int i;
         for (i = 0; i < delayTime.size(); i++){
             float delayTimeNow = Float.parseFloat(delayTime.get(i));
-            summ += delayTimeNow;
+            sum += delayTimeNow;
             if(delayTimeNow < min){
                 min = delayTimeNow;
             }
@@ -54,7 +54,7 @@ public class JoinReducer extends Reducer<AirportWritableComparable, Text, Text, 
                 max = delayTimeNow;
             }
         }
-        return new Text("Average summ of delays = " + summ / delayTime.size()
+        return new Text("Average summ of delays = " + sum / delayTime.size()
                 + ", minimal delay = " + min + ", maximal delay = " + max);
     }
 

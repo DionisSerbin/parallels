@@ -13,7 +13,7 @@ public class AirportMapper extends Mapper<LongWritable, Text, AirportWritableCom
     private static final String POINT = ",";
     private static final String QUOTES = "\"";
     private static final String NULL_STR = "";
-    private static final int 
+    private static final int
 
 
     @Override
